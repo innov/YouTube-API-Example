@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" width="800" height="600" 
+			   xmlns:youtubeapi="com.examples.youtubeapi.*" 
+			   xmlns:components="com.examples.youtubeapi.view.components.*" 
+			   xmlns:tubeloc="com.enefekt.tubeloc.*" currentState="Search" viewSourceURL="srcview/index.html">
+	
+	<s:layout>
+		<s:VerticalLayout gap="10" horizontalAlign="left" paddingLeft="10" paddingTop="10" 
+						  paddingRight="10" paddingBottom="10"/>
+	</s:layout>
+	
+	<s:states>
+		<s:State name="Search"/>
+		<s:State name="SearchResults"/>
+		<s:State name="Watching"/>
+	</s:states>
+	
+	<fx:Declarations>
+		<youtubeapi:MainContext contextView="{this}" />
+	</fx:Declarations>
+	
+	<!--Main Title Appears in all states-->
+	<s:Label id="mainTitle" text="YouTube API Example"  fontSize="20"/>
+	<!--all states-->
+	
+	<!-- Search State starts-->
+	<components:SearchVideo width="100%" includeIn="Search, SearchResults" />
+	<components:MostPopularArea width="100%" height="100%" includeIn="Search" />
+	<!-- Search State ends-->
+	
+	<!-- SearchResults State starts-->
+	<s:Label id="searchResultsLabel" text="Search Results for:" width="100%" includeIn="SearchResults" />
+	<components:SearchResultsArea width="100%" height="100%" includeIn="SearchResults" />
+	<!-- SearchResults State ends-->
+	
+	<!-- Watching State starts-->
+	<mx:Spacer height="20"  includeIn="Watching"/>
+	<s:Label id="currentVideoTitle" text=" "  fontSize="18"  includeIn="Watching"/>
+	
+	<s:HGroup width="100%" height="324" gap="10" includeIn="Watching">
+		<tubeloc:Movie id="moviePlayer" width="447" height="300" />
+		
+		<s:VGroup width="100%" height="324">
+			<components:SearchVideo width="100%" />
+			<components:CommentsArea width="100%" height="100%" />
+		</s:VGroup>
+	</s:HGroup>
+	
+	<components:SuggestionsArea width="100%" height="100%"  includeIn="Watching"/>
+	<!-- Watching State ends-->
+	
+</s:Application>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:mx="library://ns.adobe.com/flex/mx" 
+				autoDrawBackground="true">
+	
+	<s:layout>
+		<s:HorizontalLayout paddingBottom="5" paddingLeft="5" paddingRight="5" paddingTop="5" />
+	</s:layout>
+	
+	<mx:Image id="videoImageThumb" width="120" height="90" source="{data.thumbnail}" />
+	
+	<s:VGroup height="90">
+		<s:RichText id="videoTitle" width="120" fontSize="11" text="{data.title}" />
+		<s:Label id="videoAuthor" width="120" fontSize="10" text="by {data.author}" />
+		<s:Label id="videoHits" width="120" fontSize="10" text="{data.hits} hits" />
+	</s:VGroup>
+	
+</s:ItemRenderer>
