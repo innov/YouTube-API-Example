@@ -25,6 +25,8 @@ package com.examples.youtubeapi
 	 * @author Jonathan Torres
 	 * Main Application File
 	 * Access services and listens for signals
+	 
+	 IM ON GIT MOTHERFUCKER!
 	 */
 	
 	public class MainMediator extends Mediator
